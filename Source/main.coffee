@@ -11,10 +11,10 @@ import {
 
 config()
 
-app = express()
-
 PORT = process.env.PORT
 PUBLIC_KEY = process.env.PUBLIC_KEY
+
+app = express()
 
 handle_commands = (req, res) ->
     { type, data } = req.body
