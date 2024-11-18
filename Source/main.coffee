@@ -31,8 +31,6 @@ interact = new Interactions
 
 interact.overwriteGuildCommands GUILD_ID, commands...
 
-send_test_poll = () -> console.log "test poll"
-
 app.get '/helloworld', (req, res) -> res.send "hello world!"
 
 app.post '/interactions', verifyKeyMiddleware(PUBLIC_KEY), (req, res) ->
