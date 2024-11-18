@@ -8,6 +8,7 @@ import {
 } from "discord-api-types/v10"
 import ngrok from "ngrok"
 import { handle_commands, commands } from "./handle_commands.js"
+import { handle_message_components } from "./handle_message_components.js"
 import { Interactions } from "@antibot/interactions"
 config()
 
@@ -37,7 +38,8 @@ app.get '/helloworld', (req, res) -> res.send "hello world!"
 app.post '/interactions', verifyKeyMiddleware(PUBLIC_KEY), (req, res) ->
     switch req.body.type
         when InteractionType.Ping then res.send type: InteractionResponseType.Pong
-        when InteractionType.ApplicationCommand then await handle_commands req, res 
+        when InteractionType.ApplicationCommand then await handle_commands req, res
+        when InteractionType.MessageComponent then await handle_message_components req, res 
 
 app.listen PORT, () -> console.log "Now listening to #{PORT}"
 

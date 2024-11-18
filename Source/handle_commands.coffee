@@ -22,6 +22,12 @@ commands = [
           }
       ]
   }
+  {
+        type: ApplicationCommandType.ChatInput,
+        name: 'components',
+        description: 'Replies with a message with components',
+        options: []
+  }
 ]
 
 handle_commands = (req, res) ->
@@ -31,11 +37,33 @@ handle_commands = (req, res) ->
         when 'ping'
           res.send 
               type: InteractionResponseType.ChannelMessageWithSource
-              data: content: "hello world"
+              data: content: "Pong!"
         when 'talk' 
             await send_content_with_webhook username: 'Jasper', avatar_url: 'https://cdn.discordapp.com/avatars/846426214276923483/6db8141c019f0a1d3abe843af01ea5b2.png?size=1024', content: "SHUT UP"
             res.send 
               type: InteractionResponseType.ChannelMessageWithSource
               data: content: data.options[0].value
+        when 'components'
+            res.send 
+              type: InteractionResponseType.ChannelMessageWithSource
+              data: content: "Hello world", components: [
+                  {
+                      type: 1
+                      components: [
+                          {
+                              type: 2
+                              style: 1
+                              label: "Button 1"
+                              custom_id: "button1"
+                          }
+                          {
+                              type: 2
+                              style: 2
+                              label: "Button 2"
+                              custom_id: "button2"
+                          }
+                      ]
+                  }
+              ]
 
 export { handle_commands, commands }
