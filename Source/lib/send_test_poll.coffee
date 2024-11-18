@@ -22,6 +22,5 @@ send_test_poll = (channel_id) ->
             'X-Super-Properties': super_value
             'Content-Type': 'application/json'
         body: JSON.stringify poll
-    console.log response
 
 export { send_test_poll }
