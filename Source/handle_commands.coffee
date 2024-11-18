@@ -1,6 +1,7 @@
 import { InteractionResponseType, ApplicationCommandType } from "discord-api-types/v10"
 import { Interactions } from "@antibot/interactions"
 import { send_content_with_webhook } from "./lib/send_content_with_webhook.js"
+import { send_test_poll } from "./lib/send_test_poll.js"
 
 commands = [
   {
@@ -26,6 +27,12 @@ commands = [
         type: ApplicationCommandType.ChatInput,
         name: 'components',
         description: 'Replies with a message with components',
+        options: []
+  }
+  {
+        type: ApplicationCommandType.ChatInput,
+        name: "poll",
+        description: "Create a poll",
         options: []
   }
 ]
@@ -65,5 +72,10 @@ handle_commands = (req, res) ->
                       ]
                   }
               ]
+        when 'poll'
+            await send_test_poll req.body.channel_id
+            res.send 
+              type: InteractionResponseType.ChannelMessageWithSource
+              data: content: "Poll created!"
 
 export { handle_commands, commands }
