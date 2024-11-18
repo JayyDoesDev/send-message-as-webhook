@@ -1,0 +1,10 @@
+PORT = process.env.PORT
+PUBLIC_KEY = process.env.PUBLIC_KEY
+CLIENT_ID = process.env.CLIENT_ID
+GUILD_ID = process.env.GUILD_ID
+BOT_TOKEN = process.env.BOT_TOKEN
+NGROK = process.env.NGROK
+WEBHOOK_ID = process.env.WEBHOOK_ID
+WEBHOOK_TOKEN = process.env.WEBHOOK_TOKEN
+
+export { PORT, PUBLIC_KEY, CLIENT_ID, GUILD_ID, BOT_TOKEN, NGROK, WEBHOOK_ID, WEBHOOK_TOKEN }

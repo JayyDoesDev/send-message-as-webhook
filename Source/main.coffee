@@ -18,7 +18,7 @@ CLIENT_ID = process.env.CLIENT_ID
 GUILD_ID = process.env.GUILD_ID
 BOT_TOKEN = process.env.BOT_TOKEN
 NGROK = process.env.NGROK
-API_URL = 'https://discord.com/api/v10'
+WEBHOOK_ID = process.env.WEBHOOK_ID
 
 app = express()
 
