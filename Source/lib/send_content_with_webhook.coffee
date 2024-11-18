@@ -1,5 +1,3 @@
-
-
 send_content_with_webhook = (body) ->
     WEBHOOK_ID = process.env.WEBHOOK_ID
     WEBHOOK_TOKEN = process.env.WEBHOOK_TOKEN
