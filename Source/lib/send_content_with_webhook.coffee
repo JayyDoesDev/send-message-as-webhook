@@ -4,7 +4,6 @@ send_content_with_webhook = (body) ->
     WEBHOOK_ID = process.env.WEBHOOK_ID
     WEBHOOK_TOKEN = process.env.WEBHOOK_TOKEN
 
-    console.log base "/webhooks/#{WEBHOOK_ID}/#{WEBHOOK_TOKEN}"
     if not typeof body is 'object' then body = { content: body }
     url = base "/webhooks/#{WEBHOOK_ID}/#{WEBHOOK_TOKEN}"
     response = await fetch url, 
